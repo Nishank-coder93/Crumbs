@@ -147,6 +147,38 @@ public class MapsViewActivity extends FragmentActivity implements OnMapReadyCall
 
         });
 
+        button = (Button) findViewById(R.id.entertainmentTab);
+
+        button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                // LatLng origin = current;
+                // LatLng dest = UC;
+
+                mUC = mMap.addMarker(new MarkerOptions()
+                        .position(UC)
+                        .title("University center"));
+                mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener()
+                {
+
+                    @Override
+                    public boolean onMarkerClick(Marker arg0) {
+                        if(arg0.getTitle().equals("University center")) // if marker source is clicked
+                        {
+                            Intent intent = new Intent(context,EventProfileActivity.class);
+                            startActivity(intent);
+                        }
+                        return true;
+                    }
+
+                });
+
+
+            }
+
+        });
+
     }
 
 

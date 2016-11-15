@@ -59,6 +59,10 @@
         <activity android:name=".PhotoSingleImageView"/>
         <activity android:name=".DirectionToLocationActivity"/>
 
+        <!-- Event profile activities -->
+        <activity android:name=".EventRegistrationActivity"></activity>
+        <activity android:name=".EventProfileActivity"></activity>
+
         <!-- Cart Activity -->
         <activity android:name=".CartActivity" />
         <activity android:name=".OrderPlacedActivity" />

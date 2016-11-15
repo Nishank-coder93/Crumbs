@@ -37,8 +37,8 @@ public class RegisterUserActivity extends AppCompatActivity implements View.OnCl
     private EditText editTextEmail;
     private EditText editTextPassword;
     private EditText editTextPassword1;
-    private EditText editTextExperience;
-    private EditText editTextCuisine;
+    //private EditText editTextExperience;
+    //private EditText editTextCuisine;
     //private NumberFormat editPhone;
     private TextView textViewSignIn;
 

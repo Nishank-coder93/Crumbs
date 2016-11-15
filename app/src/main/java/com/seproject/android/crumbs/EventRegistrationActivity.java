@@ -6,21 +6,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+/**
+ * Created by Mac-NB on 14/11/16.
+ */
 
-public class SellerRegistrationActivity extends AppCompatActivity {
-
-
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-
-
+public class EventRegistrationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.chef_profile_registration_layout);
+        setContentView(R.layout.event_profile_registration_layout);
         init();
 
     }
@@ -32,10 +27,9 @@ public class SellerRegistrationActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent register= new Intent(SellerRegistrationActivity.this,MapsViewActivity.class);
+                Intent register= new Intent(EventRegistrationActivity.this,SellerToasterActivity.class);
                 startActivity(register);
             }
         });
     }
-
 }

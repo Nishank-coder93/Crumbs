@@ -20,10 +20,12 @@ public class BuyerSellerChoiceActivity extends AppCompatActivity{
         setContentView(R.layout.buyer_seller_choice_layout);
         addListenerOnUserButton();
         addListenerOnSellerRegButton();
+        addListenerOnEventRegButton();
     }
 
     Button asUserButton;   // Initialise the user button
     Button asSellerButton; // Initialise the Buyer button
+    Button asEventButton; // Initialise the Event organiser button
 
 
 // on click activity opens the Map View if selected as a user
@@ -55,6 +57,28 @@ public class BuyerSellerChoiceActivity extends AppCompatActivity{
         asSellerButton = (Button) findViewById(R.id.sellerRegisterButton);
 
         asSellerButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                Intent intent = new Intent(context, SellerRegistrationActivity.class);
+                startActivity(intent);
+
+            }
+
+        });
+
+    }
+
+
+    //On click activity opens up the seller registration if selected as a seller
+    public void addListenerOnEventRegButton() {
+
+        final Context context = this;
+
+        asEventButton = (Button) findViewById(R.id.eventOrganiserButton);
+
+        asEventButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
