@@ -49,13 +49,13 @@ public class PhotoImageAdapter extends BaseAdapter { private Context mContext;
 
     // references to our images
     public Integer[] mThumbIds = {
-            R.drawable.sample_2, R.drawable.sample_3,
-            R.drawable.sample_4, R.drawable.sample_5,
-            R.drawable.sample_6, R.drawable.sample_7,
+            R.drawable.sample_0, R.drawable.sample_3,
+            R.drawable.bbq_event, R.drawable.sample_5,
+            R.drawable.bbq_event3, R.drawable.bbq_event2,
             R.drawable.sample_0, R.drawable.sample_1,
-            R.drawable.sample_2, R.drawable.sample_3,
+            R.drawable.bbq_event, R.drawable.bbq_event3,
             R.drawable.sample_4, R.drawable.sample_5,
-            R.drawable.sample_6, R.drawable.sample_7
+            R.drawable.sample_6, R.drawable.bbq_event
     };
 
 

@@ -20,6 +20,9 @@ import static com.google.android.gms.analytics.internal.zzy.ct;
 
 public class DishViewerActivity extends Activity {
     final Context context = this;
+    private int quantOfDish;
+
+    DishViewerActivity() { quantOfDish = 0; }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -79,6 +82,40 @@ public class DishViewerActivity extends Activity {
                 }
             });
 
+        }
+    }
+
+    /**
+     * This method displays the given quantity value on the screen.
+     */
+    private void displayQuantity(int number) {
+        TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
+        quantityTextView.setText("" + number);
+    }
+
+    /**
+     * This Method adds coffee number to the   qauntity
+     */
+    public void addQuantDish(View view){
+        if(quantOfDish == 2){
+            Toast.makeText(getApplicationContext(), " Cannot Order More Than Available ", Toast.LENGTH_LONG).show();
+        }
+        else{
+            quantOfDish += 1;
+            displayQuantity(quantOfDish);
+        }
+    }
+
+    /**
+     * This Method adds coffee number to the   qauntity
+     */
+    public void subQuantDish(View view){
+        if(quantOfDish == 0){
+            Toast.makeText(getApplicationContext(), " Dish Not Available ", Toast.LENGTH_LONG).show();
+        }
+        else{
+            quantOfDish -= 1;
+            displayQuantity(quantOfDish);
         }
     }
 

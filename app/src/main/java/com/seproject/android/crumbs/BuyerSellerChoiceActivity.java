@@ -83,7 +83,7 @@ public class BuyerSellerChoiceActivity extends AppCompatActivity{
             @Override
             public void onClick(View arg0) {
 
-                Intent intent = new Intent(context, SellerRegistrationActivity.class);
+                Intent intent = new Intent(context, EventRegistrationActivity.class);
                 startActivity(intent);
 
             }

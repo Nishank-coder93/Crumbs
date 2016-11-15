@@ -24,19 +24,28 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.NumberFormat;
 
+/*
+* User Registeration Activity
+* This activity is for Register users to the Database (Firebase). A database platform provided by Google
+* For authorizing a User, Maintaining their data in JSON format
+* New users will register themselves here by giving their credentials
+* */
+
 public class RegisterUserActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button buttonRegister;
-    private EditText editTextFirstName;
-    private EditText editTextLastName;
-    private EditText editTextEmail;
-    private EditText editTextPassword;
-    private EditText editTextPassword1;
+    private EditText editTextFirstName;  // An EditText type for First Name
+    private EditText editTextLastName;  // An EditText type for Last Name
+    private EditText editTextEmail;   // An EditText type for Email
+    private EditText editTextPassword; // An EditText type for Password
+    private EditText editTextPassword1; // An EditText type for confirming password
     //private EditText editTextExperience;
     //private EditText editTextCuisine;
     //private NumberFormat editPhone;
@@ -44,8 +53,10 @@ public class RegisterUserActivity extends AppCompatActivity implements View.OnCl
 
     private ProgressDialog progressDialog;
 
+    /* Setting the variable to access the Firebase (Database) reference of the user for authorization */
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
+    private FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,10 +128,30 @@ public class RegisterUserActivity extends AppCompatActivity implements View.OnCl
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressDialog.dismiss();
                         if(task.isSuccessful()) {
+                            /* Gets the User Id of the current user where the information about the user will be stored
+                            * we are storing First Name, Last Name and A Full Name attribute */
                             String userId = firebaseAuth.getCurrentUser().getUid();
                             DatabaseReference current_user_db = databaseReference.child(userId);
                             current_user_db.child("firstName").setValue(firstName);
                             current_user_db.child("lastName").setValue(lastName);
+                            current_user_db.child("fullName").setValue(firstName+" "+lastName);
+
+                            user = FirebaseAuth.getInstance().getCurrentUser();
+
+                            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                    .setDisplayName(firstName+" "+lastName)
+                                    .build();
+
+                            user.updateProfile(profileUpdates)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+
+                                            }
+                                        }
+                                    });
+
                             Toast.makeText(RegisterUserActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                             finish();
                             startActivity(new Intent(getApplicationContext(), MapsViewActivity.class));

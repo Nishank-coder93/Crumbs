@@ -49,7 +49,8 @@ public class MapsViewActivity extends FragmentActivity implements OnMapReadyCall
     LocationRequest mLocationRequest;
     private static final LatLng UC = new LatLng(32.7316535, -97.11099790000003);
     private Marker mUC;
-    public Button button;
+    public Button button;   // Food
+    public Button buttonTwo; //Entertainment
     TextView tvDistanceDuration;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -147,9 +148,9 @@ public class MapsViewActivity extends FragmentActivity implements OnMapReadyCall
 
         });
 
-        button = (Button) findViewById(R.id.entertainmentTab);
+        buttonTwo = (Button) findViewById(R.id.entertainmentTab);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        buttonTwo.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {

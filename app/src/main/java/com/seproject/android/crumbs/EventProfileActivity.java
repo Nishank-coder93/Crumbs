@@ -113,7 +113,7 @@ public class EventProfileActivity extends FragmentActivity implements OnMapReady
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng UC = new LatLng(32.7316535, -97.11099790000003);
+        LatLng UC = new LatLng(32.7300968, -97.1135226);
         mMap.addMarker(new MarkerOptions().position(UC).title("UniversityCenter"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(UC));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
