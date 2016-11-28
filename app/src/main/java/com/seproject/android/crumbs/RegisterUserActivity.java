@@ -31,6 +31,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.NumberFormat;
 
+import static android.R.attr.password;
+
 /*
 * User Registeration Activity
 * This activity is for Register users to the Database (Firebase). A database platform provided by Google
@@ -44,8 +46,10 @@ public class RegisterUserActivity extends AppCompatActivity implements View.OnCl
     private EditText editTextFirstName;  // An EditText type for First Name
     private EditText editTextLastName;  // An EditText type for Last Name
     private EditText editTextEmail;   // An EditText type for Email
-    private EditText editTextPassword; // An EditText type for Password
-    private EditText editTextPassword1; // An EditText type for confirming password
+    private EditText editTextUserName; // An EditText type for username
+    private EditText editTextPassword; // An EditText password type for Password
+    private EditText editTextPassword1; // An EditText Password type for confirming password
+
     //private EditText editTextExperience;
     //private EditText editTextCuisine;
     //private NumberFormat editPhone;
@@ -78,12 +82,13 @@ public class RegisterUserActivity extends AppCompatActivity implements View.OnCl
         editTextFirstName = (EditText) findViewById(R.id.editTextFirstName);
         editTextLastName = (EditText) findViewById(R.id.editTextLastName);
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
+        editTextUserName = (EditText) findViewById(R.id.editUserName);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         editTextPassword1 = (EditText) findViewById(R.id.editTextPassword1);
-        textViewSignIn = (TextView) findViewById(R.id.buttonRegister);
+        //textViewSignIn = (TextView) findViewById(R.id.buttonRegister);
 
         buttonRegister.setOnClickListener(this);
-        textViewSignIn.setOnClickListener(this);
+        //textViewSignIn.setOnClickListener(this);
     }
 
     //Registration method
@@ -91,21 +96,27 @@ public class RegisterUserActivity extends AppCompatActivity implements View.OnCl
         final String firstName = editTextFirstName.getText().toString().trim();
         final String lastName = editTextLastName.getText().toString().trim();
         String email = editTextEmail.getText().toString().trim();
+        final String username = editTextUserName.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
         String password1 = editTextPassword1.getText().toString().trim();
 
         if(TextUtils.isEmpty(firstName)) {
-            Toast.makeText(this, "Please enter first name", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter first yout name", Toast.LENGTH_SHORT).show();
             return;
         }
 
         if(TextUtils.isEmpty(lastName)) {
-            Toast.makeText(this, "Please enter last name", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter your last name", Toast.LENGTH_SHORT).show();
             return;
         }
 
         if(TextUtils.isEmpty(email)) {
             Toast.makeText(this, "Please enter an email-id", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(TextUtils.isEmpty(username)) {
+            Toast.makeText(this, "Please enter a username", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -135,6 +146,7 @@ public class RegisterUserActivity extends AppCompatActivity implements View.OnCl
                             current_user_db.child("firstName").setValue(firstName);
                             current_user_db.child("lastName").setValue(lastName);
                             current_user_db.child("fullName").setValue(firstName+" "+lastName);
+                            current_user_db.child("username").setValue(username);
 
                             user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -154,9 +166,11 @@ public class RegisterUserActivity extends AppCompatActivity implements View.OnCl
 
                             Toast.makeText(RegisterUserActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                             finish();
-                            startActivity(new Intent(getApplicationContext(), MapsViewActivity.class));
-                        }else {
+                            startActivity(new Intent(getApplicationContext(), BuyerSellerChoiceActivity.class));
+                        }
+                        else {
                             Toast.makeText(RegisterUserActivity.this, "Could not register... Please try again", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), RegisterUserActivity.class));
                         }
                     }
                 });
@@ -176,10 +190,6 @@ public class RegisterUserActivity extends AppCompatActivity implements View.OnCl
         if(v == buttonRegister) {
             registerUser();
             //updateUserData();
-        }
-        if (v == textViewSignIn) {
-            finish();
-            startActivity(new Intent(this, BuyerSellerChoiceActivity.class));
         }
     }
 }

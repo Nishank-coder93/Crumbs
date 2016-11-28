@@ -65,19 +65,12 @@
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
         android:backgroundTint="@color/colorPrimaryDark"
-        android:gravity="top"
-        android:hint="Username"
-        android:fitsSystemWindows="true"
-        android:breakStrategy="balanced"
         android:textColorHint="#fff"
         android:textColor="#fff"
-        android:inputType="textMultiLine"
-        android:singleLine="false"
-        android:padding="5dp"
-        android:id="@+id/editText8" />
+        android:hint="Username"
+        android:id="@+id/editUserName"
+        android:inputType="textPersonName" />
 
     <EditText
         android:layout_width="fill_parent"
@@ -95,10 +88,9 @@
         android:backgroundTint="@color/colorPrimaryDark"
         android:textColorHint="#fff"
         android:textColor="#fff"
-        android:inputType="textPassword"
         android:hint="Confirm Password"
-        android:layout_weight="0.08"
-        android:id="@+id/editTextPassword1" />
+        android:inputType="textPassword"
+        android:id="@+id/editTextPassword1"/>
 
     <Button
         android:layout_width="match_parent"

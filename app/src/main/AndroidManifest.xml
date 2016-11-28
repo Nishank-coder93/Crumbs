@@ -72,6 +72,9 @@
         <activity android:name=".BuyerSellerChoiceActivity"/>
         <activity android:name=".SellerRegistrationActivity" />
         <activity android:name=".SellerToasterActivity" />
+
+        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat"/>
     </application>
 
 </manifest>

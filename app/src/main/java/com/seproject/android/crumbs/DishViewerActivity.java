@@ -20,9 +20,8 @@ import static com.google.android.gms.analytics.internal.zzy.ct;
 
 public class DishViewerActivity extends Activity {
     final Context context = this;
-    private int quantOfDish;
+    private int quantOfDish = 0;
 
-    DishViewerActivity() { quantOfDish = 0; }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
