@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/signin">
+
+    <Button
+        android:text="Register yourself as a Seller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/registerSellerButton"
+        android:layout_marginTop="100dp"
+        android:textColor="#FFFFFF"
+        android:background="#1368BD"
+        android:textSize="20sp"
+        />
+
+    <Button
+        android:text="Register yourself as an event manager "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/registerEventManager"
+        android:layout_marginTop="30dp"
+        android:textColor="#FFFFFF"
+        android:background="#660066"
+        android:textSize="20sp"
+         />
+
+    <Button
+        android:text="HELP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/helpButton"
+        android:textColor="#FFFFFF"
+        android:background="#0FBD5A"
+        android:textSize="20sp"
+        android:layout_marginTop="30dp"
+        />
+
+    <Button
+        android:text="Logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonLogout"
+        android:layout_marginTop="30dp"
+        android:textColor="#FFFFFF"
+        android:background="#ebca0707"
+        android:textSize="20sp"
+        />
+</LinearLayout>

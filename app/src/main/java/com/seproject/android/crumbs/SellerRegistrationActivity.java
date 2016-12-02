@@ -88,6 +88,7 @@ public class SellerRegistrationActivity extends FragmentActivity implements View
         mWebsite = (EditText) findViewById(R.id.edit_website_link);
         mAddress = (EditText) findViewById(R.id.edit_address);
 
+        //Retrieves the Full name attribute from the Database.
         mDatabaseUserFullName = FirebaseDatabase.getInstance().getReference().child("Users").child(user.getUid()).child("fullName");
         mDatabaseUserFullName.addValueEventListener(new ValueEventListener() {
             @Override
@@ -102,10 +103,13 @@ public class SellerRegistrationActivity extends FragmentActivity implements View
             }
         });
 
+        //on Submit
         mSubmitButton = (Button) findViewById(R.id.submitChefProfile);
 
         mDatabaseUserImageUri = FirebaseDatabase.getInstance().getReference().child("Users").child(user.getUid()).child("image");
 
+        // Sets up the profile picture of the seller/chef
+        // uses a 3rd party library called Picasso and Crop image to crop and load images from the library
         if(mDatabaseUserImageUri == null) {
             Picasso.with(SellerRegistrationActivity.this).load(mDefaultImageString).into(mSetupImageButton);
             Log.d("Image"," So the default image loaded ");
@@ -151,6 +155,7 @@ public class SellerRegistrationActivity extends FragmentActivity implements View
 
     }
 
+    //Function sets up the Data and loads onto the Database
     private void startSetupAccount() {
 
         final String userId = mAuth.getCurrentUser().getUid();
@@ -196,6 +201,8 @@ public class SellerRegistrationActivity extends FragmentActivity implements View
 
     }
 
+
+    //Crop image function
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -206,7 +213,7 @@ public class SellerRegistrationActivity extends FragmentActivity implements View
 
             CropImage.activity(imageUri)
                     .setGuidelines(CropImageView.Guidelines.ON)
-                    //.setAspectRatio(1, 1)
+                    .setAspectRatio(1, 1)
                     .start(this);
 
         }

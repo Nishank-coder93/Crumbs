@@ -7,56 +7,93 @@
     android:layout_height="match_parent"
     tools:context="com.seproject.android.crumbs.MapsViewActivity" >
 
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:id="@+id/experience_layout"
-        android:layout_gravity="top"
-        >
+        android:gravity="top">
 
-        <Button
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:text="Food"
-            android:background="@drawable/button_bg_round"
-            android:drawableTop="@drawable/food"
-            android:textColor="@android:color/white"
-            android:id="@+id/foodTab"
-            android:paddingTop="20dp"
-            android:layout_marginLeft="20dp"/>
-
-        <Button
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:drawableTop="@drawable/event_ico"
-            android:text="Events"
-            android:textColor="@android:color/white"
-            android:background="@drawable/button_bg_round"
-            android:id="@+id/entertainmentTab"
-            android:paddingTop="20dp"
-            android:layout_marginLeft="20dp"/>
-
-        <Button
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:drawableTop="@drawable/ic_shopping_cart"
-            android:text="Cart"
-            android:textColor="@android:color/white"
-            android:background="@drawable/button_bg_round"
-            android:id="@+id/cartTab"
-            android:paddingTop="20dp"
-            android:layout_marginLeft="20dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/search_bar">
 
 
-    </LinearLayout>
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:id="@+id/TFaddress" />
 
-    <Button
-        android:text="Logout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="#ebca0707"
-        android:id="@+id/buttonLogout" />
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Search"
+                android:textColor="#FFFFFF"
+                android:background="#0FBD5A"
+                android:textSize="16sp"
+                android:id="@+id/Bsearch"
+                android:layout_weight="1"
+                android:onClick="onSearch" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/experience_layout"
+            android:layout_below="@id/search_bar"
+            android:layout_marginBottom="10dp">
+
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:text="Food"
+                android:background="@drawable/button_bg_round"
+                android:drawableTop="@drawable/food"
+                android:textColor="@android:color/white"
+                android:id="@+id/foodTab"
+                android:paddingTop="10dp"
+                android:layout_marginLeft="10dp"/>
+
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:drawableTop="@drawable/event_ico"
+                android:text="Events"
+                android:textColor="@android:color/white"
+                android:background="@drawable/button_bg_round"
+                android:id="@+id/entertainmentTab"
+                android:paddingTop="10dp"
+                android:layout_marginLeft="10dp"/>
+
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:drawableTop="@drawable/ic_shopping_cart"
+                android:text="Cart"
+                android:textColor="@android:color/white"
+                android:background="@drawable/button_bg_round"
+                android:id="@+id/cartTab"
+                android:paddingTop="10dp"
+                android:layout_marginLeft="10dp" />
+
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:drawableTop="@drawable/settings"
+                android:text="Settings"
+                android:textColor="@android:color/white"
+                android:background="@drawable/button_bg_round"
+                android:id="@+id/settingTab"
+                android:paddingTop="10dp"
+                android:layout_marginLeft="10dp"/>
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
 </fragment>
